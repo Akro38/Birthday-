@@ -359,11 +359,13 @@ body {
   }
 }
 
-/* Адаптив */
+/* Планшеты и меньше */
 @media (max-width: 960px) {
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 10px;
+    min-height: auto;
+    padding: 24px 0 32px;
+    gap: 22px;
   }
 
   .card-wrap {
@@ -371,39 +373,151 @@ body {
   }
 
   .gift-card {
-    width: min(520px, 100%);
+    width: min(560px, 100%);
+    min-height: auto;
+  }
+
+  .section {
+    padding: 8px 0 28px;
   }
 }
 
-@media (max-width: 560px) {
+/* Телефоны */
+@media (max-width: 640px) {
   .page {
     width: min(100% - 20px, 1080px);
+    padding: 18px 0 36px;
   }
 
-  .gift-card {
-    min-height: auto;
-    padding: 22px;
+  .hero {
+    gap: 18px;
+    padding: 12px 0 24px;
+  }
+
+  .badge {
+    font-size: 0.84rem;
+    padding: 9px 13px;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.3rem, 13vw, 4.2rem);
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+  }
+
+  .hero-text {
+    margin-top: 14px;
+    font-size: 0.98rem;
+    line-height: 1.7;
   }
 
   .hero-buttons {
     flex-direction: column;
+    gap: 12px;
+    margin-top: 22px;
   }
 
   .btn {
     width: 100%;
     text-align: center;
+    padding: 14px 18px;
+    font-size: 0.96rem;
   }
 
-  .hero h1 {
-    font-size: clamp(2.4rem, 14vw, 4.4rem);
+  .gift-card {
+    border-radius: 24px;
+    padding: 18px;
+  }
+
+  .card-top {
+    margin-bottom: 18px;
+  }
+
+  .mini-tag {
+    font-size: 0.78rem;
+    padding: 7px 10px;
+  }
+
+  .emoji-orb {
+    width: 48px;
+    height: 48px;
+    font-size: 1.35rem;
+  }
+
+  .card-message {
+    gap: 12px;
+  }
+
+  .card-message h2 {
+    font-size: clamp(1.45rem, 7vw, 2rem);
+    line-height: 1.06;
+  }
+
+  .card-message p {
+    font-size: 0.96rem;
+    line-height: 1.72;
+  }
+
+  .signature {
+    margin-top: 10px;
+  }
+
+  .section-title {
+    font-size: 1.55rem;
+    margin-bottom: 12px;
   }
 
   .message-card {
-    padding: 22px;
+    border-radius: 20px;
+    padding: 18px;
   }
 
   .message-card p {
-    font-size: 0.98rem;
-    line-height: 1.85;
+    font-size: 0.96rem;
+    line-height: 1.8;
+  }
+
+  .footer {
+    padding-top: 18px;
+    font-size: 0.88rem;
+  }
+
+  .heart {
+    font-size: 15px !important;
+  }
+}
+
+/* Очень маленькие телефоны */
+@media (max-width: 380px) {
+  .page {
+    width: calc(100% - 16px);
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 12vw, 3.4rem);
+  }
+
+  .hero-text,
+  .card-message p,
+  .message-card p {
+    font-size: 0.93rem;
+  }
+
+  .gift-card,
+  .message-card {
+    padding: 16px;
+  }
+
+  .badge {
+    font-size: 0.78rem;
+    padding: 8px 11px;
+  }
+}
+
+/* Отключаем 3D-наклон на тач-устройствах */
+@media (hover: none) and (pointer: coarse) {
+  .gift-card {
+    transform: none !important;
   }
 }
