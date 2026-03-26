@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>С Днём Рождения, Анастейша ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #080b1f;
+      --bg-2: #141a3d;
+      --bg-3: #261b52;
+      --white: #f8fbff;
+      --text-soft: rgba(248, 251, 255, 0.78);
+      --glass: rgba(255, 255, 255, 0.1);
+      --glass-2: rgba(255, 255, 255, 0.07);
+      --border: rgba(255, 255, 255, 0.18);
+      --pink: #ff7db0;
+      --gold: #ffd36e;
+      --cyan: #78efff;
+      --violet: #9f8cff;
+      --success: #9dffb8;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255, 125, 176, 0.18), transparent 22%),
+        radial-gradient(circle at 80% 15%, rgba(120, 239, 255, 0.14), transparent 24%),
+        radial-gradient(circle at 50% 82%, rgba(255, 211, 110, 0.14), transparent 25%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
+      position: relative;
+    }
+
+    .background-layer,
+    .stars,
+    .hearts,
+    .confetti {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .background-layer::before,
+    .background-layer::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+    }
+
+    .background-layer::before {
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 125, 176, 0.35);
+      left: -60px;
+      top: 10%;
+      animation: blobFloat 10s ease-in-out infinite;
+    }
+
+    .background-layer::after {
+      width: 340px;
+      height: 340px;
+      background: rgba(120, 239, 255, 0.25);
+      right: -80px;
+      bottom: 10%;
+      animation: blobFloat 12s ease-in-out infinite reverse;
+    }
+
+    @keyframes blobFloat {
+      0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-24px) translateX(16px) scale(1.06); }
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      animation: twinkle linear infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.8); }
+    }
+
+    .floating {
+      position: absolute;
+      opacity: 0.22;
+      animation: floatUp linear infinite;
+      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.22));
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(110vh) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+      12% { opacity: 0.32; }
+      100% {
+        transform: translateY(-15vh) rotate(20deg) scale(1.12);
+        opacity: 0;
+      }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 60px;
+    }
+
+    .music-banner {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .music-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(8, 11, 31, 0.5);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    .music-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 16px rgba(157, 255, 184, 0.9);
+      animation: pulseDot 1.6s infinite ease-in-out;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.4); opacity: 1; }
+    }
+
+    .music-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tiny-btn {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .tiny-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .hero {
+      min-height: calc(100vh - 120px);
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      align-items: center;
+      gap: 28px;
+      padding: 10px 0 40px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text-soft);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+      animation: fadeUp 0.9s ease forwards;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 8vw, 6rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+      max-width: 740px;
+      opacity: 0;
+      transform: translateY(22px);
+      animation: fadeUp 0.95s ease 0.06s forwards;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #ffffff, var(--gold), var(--pink), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      margin-top: 18px;
+      max-width: 650px;
+      color: var(--text-soft);
+      line-height: 1.85;
+      font-size: clamp(1rem, 2.4vw, 1.14rem);
+      opacity: 0;
+      transform: translateY(22px);
+      animation: fadeUp 0.95s ease 0.16s forwards;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+      opacity: 0;
+      transform: translateY(22px);
+      animation: fadeUp 0.95s ease 0.25s forwards;
+    }
+
+    .btn {
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      padding: 15px 22px;
+      border-radius: 18px;
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #1a1630;
+      background: linear-gradient(135deg, var(--gold), var(--pink));
+      box-shadow: 0 18px 32px rgba(255, 125, 176, 0.28);
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+    }
+
+    .btn.ghost {
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: none;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-card-wrap {
+      display: flex;
+      justify-content: center;
+      perspective: 1500px;
+      opacity: 0;
+      transform: translateY(22px);
+      animation: fadeUp 0.95s ease 0.35s forwards;
+    }
+
+    .hero-card {
+      width: min(430px, 100%);
+      min-height: 560px;
+      border-radius: 34px;
+      position: relative;
+      padding: 26px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+      transition: transform 0.18s ease;
+      transform-style: preserve-3d;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(22px);
+      opacity: 0.46;
+    }
+
+    .hero-card::before {
+      width: 180px;
+      height: 180px;
+      background: rgba(255,125,176,0.28);
+      right: -40px;
+      top: -40px;
+    }
+
+    .hero-card::after {
+      width: 160px;
+      height: 160px;
+      background: rgba(120,239,255,0.22);
+      left: -30px;
+      bottom: -30px;
+    }
+
+    .card-head {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .mini-tag {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--text-soft);
+      font-size: 0.85rem;
+    }
+
+    .orb {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.55rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
+      animation: pulse 2.3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .hero-card h2 {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(1.55rem, 4vw, 2.4rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+    }
+
+    .hero-card p {
+      position: relative;
+      z-index: 1;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 14px;
+      font-size: 0.99rem;
+    }
+
+    .signature {
+      position: relative;
+      z-index: 1;
+      margin-top: 12px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .section {
+      padding: 46px 0;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4.2vw, 3rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--text-soft);
+      line-height: 1.8;
+      max-width: 760px;
+      margin-bottom: 26px;
+    }
+
+    .message-card,
+    .glass-card,
+    .game-panel,
+    .game-box,
+    .final-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.07));
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 28px;
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .message-card {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .message-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 211, 110, 0.1), transparent 25%);
+      pointer-events: none;
+    }
+
+    .message-card p {
+      position: relative;
+      z-index: 1;
+      font-size: 1.05rem;
+      line-height: 2;
+      color: var(--white);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .glass-card {
+      padding: 24px;
+    }
+
+    .glass-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .glass-card p {
+      color: var(--text-soft);
+      line-height: 1.75;
+    }
+
+    .game-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .game-panel {
+      padding: 24px;
+    }
+
+    .scoreboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .score-pill {
+      padding: 10px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      font-weight: 700;
+    }
+
+    .game-panel p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .game-box {
+      position: relative;
+      min-height: 380px;
+      overflow: hidden;
+      cursor: crosshair;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.08), transparent 18%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08), transparent 20%),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    }
+
+    .game-target {
+      position: absolute;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.65rem;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.24);
+      user-select: none;
+      animation: targetPop 0.22s ease;
+      cursor: pointer;
+    }
+
+    @keyframes targetPop {
+      from { transform: scale(0.76); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .hidden-note {
+      display: none;
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      color: #e9fff0;
+      background: rgba(157, 255, 184, 0.1);
+      border: 1px solid rgba(157, 255, 184, 0.28);
+      line-height: 1.75;
+    }
+
+    .final-card {
+      padding: 34px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(255, 125, 176, 0.14), transparent 35%);
+      pointer-events: none;
+    }
+
+    .final-card h2 {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      margin-bottom: 12px;
+      letter-spacing: -0.05em;
+    }
+
+    .final-card p {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--text-soft);
+      line-height: 1.85;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 28px 0 12px;
+      color: rgba(248,251,255,0.58);
+      font-size: 0.94rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: 0.85s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .features,
+      .game-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card-wrap {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 20px, 1160px);
+      }
+
+      .hero-buttons,
+      .music-box {
+        flex-direction: column;
+      }
+
+      .btn,
+      .tiny-btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero-card {
+        min-height: auto;
+      }
+
+      .game-box {
+        min-height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-layer"></div>
+  <div class="stars" id="stars"></div>
+  <div class="hearts" id="hearts"></div>
+  <div class="confetti" id="confetti"></div>
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <main class="page">
+    <div class="music-banner">
+      <div class="music-box">
+        <span class="music-dot"></span>
+        <span id="musicStatus">Музыка запускается вместе со страницей ✨</span>
+        <div class="music-controls">
+          <button class="tiny-btn" id="playMusicBtn">Включить музыку</button>
+          <button class="tiny-btn" id="muteMusicBtn">Пауза</button>
+        </div>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div>
+        <div class="badge">🌤 Небольшой праздничный сайт-поздравление</div>
+        <h1>
+          С Днём Рождения,
+          <span class="gradient">Анастейша</span> 🎂
+        </h1>
+        <p class="hero-text">
+          Не просто текст, а целая маленькая атмосфера: свет, тёплые слова, мягкие анимации,
+          праздничное настроение и чуть-чуть магии, чтобы этот день ощущался особенно красиво.
+        </p>
+        <div class="hero-buttons">
+          <a href="#main-message" class="btn">Открыть поздравление</a>
+          <button class="btn ghost" id="celebrateBtn">Запустить салют 🎉</button>
+        </div>
+      </div>
+
+      <div class="hero-card-wrap">
+        <article class="hero-card" id="tiltCard">
+          <div class="card-head">
+            <div class="mini-tag">Birthday page mode: ON</div>
+            <div class="orb">💫</div>
+          </div>
+          <h2>Ты сильный человек, и это видно не по словам, а по тому, как ты идёшь к своим целям.</h2>
+          <p>
+            Пусть всё, через что ты проходишь, в итоге приведёт тебя к моменту,
+            когда станет легче, спокойнее и светлее.
+          </p>
+          <p>
+            Такие люди, как ты, цепляют не громкостью, а внутренней силой,
+            характером и тем, что умеют не сдаваться.
+          </p>
+          <p class="signature">С теплом и уважением ✨</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="main-message">
+      <h2 class="section-title">Поздравление 💌</h2>
+      <p class="section-subtitle">
+        Здесь только само поздравление — без объяснялок и лишних вставок. Просто красиво поданное тёплое послание.
+      </p>
+      <div class="message-card">
+        <p>
+          Sooooo!🌤<br><br>
+          Анастейша, с Днем Рожденья!🥳🥳🥳🥳🌹<br><br>
+          Пусть твой путь не легок, твои труды окупятся и наступит момент когда станет гораздо проще и светлее!<br>
+          Ты сильный человек, то как ты достигаешь своих целей может похвастаться не каждый.<br>
+          То что нас не ломает делает нас сильнее, верно?🙈😅<br><br>
+          Продолжай в том же духе, знай что если что ты можешь обратится ко мне!🥸<br><br>
+          С твоим днем! С днем Рожденья!😎😎😎🥳🥳⚡️✨💫🔥🔥🔥🔥🔥
+        </p>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2 class="section-title">Что делает эту страницу особенной 🌌</h2>
+      <p class="section-subtitle">
+        Нежный визуал, движение, интерактив и ощущение, что поздравление делалось специально для неё, а не просто было написано в чате.
+      </p>
+      <div class="features">
+        <article class="glass-card">
+          <h3>Атмосфера</h3>
+          <p>Мягкий ночной фон, звёзды, свечение и стеклянные карточки делают всё визуально тёплым, нежным и современным.</p>
+        </article>
+        <article class="glass-card">
+          <h3>Движение</h3>
+          <p>Плавные анимации появления, конфетти, объёмная открытка и живые декоративные детали создают ощущение маленького праздника.</p>
+        </article>
+        <article class="glass-card">
+          <h3>Интерактив</h3>
+          <p>Мини-игра добавляет живость: это уже не просто страница, а маленькое событие, которое хочется понажимать и посмотреть до конца.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2 class="section-title">Мини-игра: собери праздник 🎯</h2>
+      <p class="section-subtitle">
+        Лови праздничные символы внутри поля. Когда наберёшь 12 очков — откроется дополнительное тёплое послание.
+      </p>
+
+      <div class="game-layout">
+        <div class="game-panel">
+          <div class="scoreboard">
+            <div class="score-pill">Очки: <span id="score">0</span></div>
+            <div class="score-pill">Рекорд: <span id="best">0</span></div>
+            <div class="score-pill">Цель: 12</div>
+          </div>
+
+          <p>
+            Такой маленький интерактив делает открытку более живой. Не перегружает страницу,
+            но добавляет эмоцию и ощущение, что это сделано реально с душой.
+          </p>
+
+          <button class="btn" id="startGameBtn">Начать игру ✨</button>
+
+          <div class="hidden-note" id="hiddenNote">
+            Ты справилась 💖<br>
+            Пусть в этом году у тебя будет больше лёгкости, уверенности, светлых моментов, хороших людей рядом
+            и достижений, которыми ты будешь искренне гордиться.
+          </div>
+        </div>
+
+        <div class="game-box" id="gameBox"></div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="final-card">
+        <h2>Happy Birthday, <span class="gradient">Anasteysha</span> ✨</h2>
+        <p>
+          Пусть этот год принесёт тебе больше спокойствия внутри, больше ярких поводов улыбаться,
+          больше результатов от твоих усилий и больше людей, которые будут видеть в тебе ту силу,
+          которую ты уже давно в себе носишь.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer reveal">
+      Сделано с теплом, кодом и хорошим настроением 💻💖
+    </footer>
+  </main>
+
+  <script>
+    const starsContainer = document.getElementById('stars');
+    const heartsContainer = document.getElementById('hearts');
+    const confettiLayer = document.getElementById('confetti');
+    const celebrateBtn = document.getElementById('celebrateBtn');
+    const tiltCard = document.getElementById('tiltCard');
+    const revealItems = document.querySelectorAll('.reveal');
+    const bgMusic = document.getElementById('bgMusic');
+    const playMusicBtn = document.getElementById('playMusicBtn');
+    const muteMusicBtn = document.getElementById('muteMusicBtn');
+    const musicStatus = document.getElementById('musicStatus');
+
+    function createStars(count = 95) {
+      for (let i = 0; i < count; i++) {
+        const star = document.createElement('span');
+        star.className = 'star';
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.animationDuration = `${2 + Math.random() * 4}s`;
+        star.style.animationDelay = `${Math.random() * 4}s`;
+        star.style.opacity = `${0.2 + Math.random() * 0.8}`;
+        starsContainer.appendChild(star);
+      }
+    }
+
+    function createFloatingItems(count = 18) {
+      const symbols = ['💖', '✨', '🌸', '💫', '🌷'];
+      for (let i = 0; i < count; i++) {
+        const item = document.createElement('span');
+        item.className = 'floating';
+        item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        item.style.left = `${Math.random() * 100}%`;
+        item.style.fontSize = `${14 + Math.random() * 18}px`;
+        item.style.animationDuration = `${10 + Math.random() * 12}s`;
+        item.style.animationDelay = `${Math.random() * 8}s`;
+        heartsContainer.appendChild(item);
+      }
+    }
+
+    function launchConfetti(amount = 100) {
+      const pieces = ['✨', '🎉', '💖', '🌸', '💫', '🌟'];
+      for (let i = 0; i < amount; i++) {
+        const piece = document.createElement('span');
+        piece.textContent = pieces[Math.floor(Math.random() * pieces.length)];
+        piece.style.position = 'absolute';
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.top = '-5%';
+        piece.style.fontSize = `${14 + Math.random() * 18}px`;
+        piece.style.opacity = '1';
+        piece.style.transition = `transform ${2.6 + Math.random() * 1.3}s linear, opacity ${3 + Math.random() * 1.1}s ease`;
+        confettiLayer.appendChild(piece);
+
+        requestAnimationFrame(() => {
+          piece.style.transform = `translate(${(Math.random() - 0.5) * 220}px, ${window.innerHeight + 120}px) rotate(${Math.random() * 760}deg)`;
+          piece.style.opacity = '0';
+        });
+
+        setTimeout(() => piece.remove(), 4300);
+      }
+    }
+
+    celebrateBtn.addEventListener('click', () => launchConfetti(130));
+
+    tiltCard.addEventListener('mousemove', (e) => {
+      const rect = tiltCard.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const rotateY = ((x / rect.width) - 0.5) * 16;
+      const rotateX = -((y / rect.height) - 0.5) * 16;
+      tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    tiltCard.addEventListener('mouseleave', () => {
+      tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    revealItems.forEach(item => observer.observe(item));
+
+    async function tryAutoplayMusic() {
+      bgMusic.volume = 0.55;
+      try {
+        await bgMusic.play();
+        musicStatus.textContent = 'Музыка играет ✨';
+      } catch (error) {
+        musicStatus.textContent = 'Браузер заблокировал автозапуск — нажми «Включить музыку»';
+      }
+    }
+
+    playMusicBtn.addEventListener('click', async () => {
+      try {
+        await bgMusic.play();
+        musicStatus.textContent = 'Музыка играет ✨';
+      } catch (error) {
+        musicStatus.textContent = 'Не удалось включить музыку. Проверь файл music.mp3';
+      }
+    });
+
+    muteMusicBtn.addEventListener('click', () => {
+      if (bgMusic.paused) {
+        bgMusic.play().then(() => {
+          musicStatus.textContent = 'Музыка играет ✨';
+          muteMusicBtn.textContent = 'Пауза';
+        }).catch(() => {
+          musicStatus.textContent = 'Нажми «Включить музыку»';
+        });
+      } else {
+        bgMusic.pause();
+        musicStatus.textContent = 'Музыка на паузе';
+        muteMusicBtn.textContent = 'Продолжить';
+      }
+    });
+
+    document.addEventListener('click', async () => {
+      if (bgMusic.paused) {
+        try {
+          await bgMusic.play();
+          musicStatus.textContent = 'Музыка играет ✨';
+        } catch (error) {}
+      }
+    }, { once: true });
+
+    // Mini game
+    const gameBox = document.getElementById('gameBox');
+    const scoreEl = document.getElementById('score');
+    const bestEl = document.getElementById('best');
+    const startGameBtn = document.getElementById('startGameBtn');
+    const hiddenNote = document.getElementById('hiddenNote');
+
+    let score = 0;
+    let best = Number(localStorage.getItem('birthdayBestScore') || 0);
+    let gameStarted = false;
+    let targetInterval = null;
+
+    bestEl.textContent = best;
+
+    function spawnTarget() {
+      if (!gameStarted) return;
+
+      const old = gameBox.querySelector('.game-target');
+      if (old) old.remove();
+
+      const target = document.createElement('button');
+      target.className = 'game-target';
+      target.type = 'button';
+      const icons = ['🎂', '💖', '✨', '🎉', '🌟'];
+      target.textContent = icons[Math.floor(Math.random() * icons.length)];
+
+      const maxX = gameBox.clientWidth - 66;
+      const maxY = gameBox.clientHeight - 66;
+      target.style.left = `${8 + Math.random() * Math.max(20, maxX - 8)}px`;
+      target.style.top = `${8 + Math.random() * Math.max(20, maxY - 8)}px`;
+
+      target.addEventListener('click', () => {
+        score++;
+        scoreEl.textContent = score;
+        launchConfetti(14);
+
+        if (score > best) {
+          best = score;
+          localStorage.setItem('birthdayBestScore', String(best));
+          bestEl.textContent = best;
+        }
+
+        if (score >= 12) {
+          hiddenNote.style.display = 'block';
+        }
+
+        spawnTarget();
+      });
+
+      gameBox.appendChild(target);
+
+      setTimeout(() => {
+        if (target.isConnected) target.remove();
+      }, 1200);
+    }
+
+    function startGame() {
+      score = 0;
+      scoreEl.textContent = score;
+      hiddenNote.style.display = 'none';
+      gameStarted = true;
+      clearInterval(targetInterval);
+      spawnTarget();
+      targetInterval = setInterval(spawnTarget, 980);
+    }
+
+    startGameBtn.addEventListener('click', startGame);
+
+    createStars();
+    createFloatingItems();
+    setTimeout(() => launchConfetti(80), 650);
+    tryAutoplayMusic();
+  </script>
+</body>
+</html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>С Днём Рождения, Анастейша!</title>
+  <style>
+    :root {
+      --bg1: #0f1021;
+      --bg2: #1a1b3a;
+      --accent: #ffd166;
+      --accent-2: #ff7aa2;
+      --accent-3: #7afcff;
+      --text: #f9fbff;
+      --muted: rgba(249, 251, 255, 0.78);
+      --glass: rgba(255, 255, 255, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --success: #8cffb2;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 122, 162, 0.18), transparent 22%),
+        radial-gradient(circle at 80% 30%, rgba(122, 252, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 50% 85%, rgba(255, 209, 102, 0.16), transparent 25%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      position: relative;
+    }
+
+    .stars,
+    .sparkles,
+    .floating-hearts,
+    .confetti-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.8);
+      animation: twinkle linear infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.8); }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 18px;
+      opacity: 0.2;
+      animation: floatUp linear infinite;
+      filter: drop-shadow(0 6px 18px rgba(255, 122, 162, 0.35));
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(110vh) scale(0.8) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 0.35; }
+      100% {
+        transform: translateY(-15vh) scale(1.2) rotate(25deg);
+        opacity: 0;
+      }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 60px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      gap: 28px;
+      grid-template-columns: 1.15fr 0.85fr;
+      padding: 20px 0 40px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--muted);
+      margin-bottom: 18px;
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      max-width: 720px;
+      animation: fadeUp 1s ease 0.08s forwards;
+      opacity: 0;
+      transform: translateY(22px);
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(90deg, #fff, var(--accent), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      margin-top: 18px;
+      max-width: 650px;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      line-height: 1.8;
+      color: var(--muted);
+      animation: fadeUp 1s ease 0.18s forwards;
+      opacity: 0;
+      transform: translateY(22px);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+      animation: fadeUp 1s ease 0.28s forwards;
+      opacity: 0;
+      transform: translateY(22px);
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      padding: 14px 22px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255, 209, 102, 0.95), rgba(255, 122, 162, 0.95));
+      color: #1b1730;
+      font-weight: 800;
+      font-size: 0.98rem;
+      transition: 0.25s ease;
+      text-decoration: none;
+      box-shadow: 0 14px 30px rgba(255, 122, 162, 0.25);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 18px 38px rgba(255, 122, 162, 0.32);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: none;
+      backdrop-filter: blur(10px);
+    }
+
+    .card-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1400px;
+      animation: fadeUp 1s ease 0.35s forwards;
+      opacity: 0;
+      transform: translateY(22px);
+    }
+
+    .gift-card {
+      position: relative;
+      width: min(420px, 100%);
+      min-height: 520px;
+      border-radius: 32px;
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08));
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease;
+    }
+
+    .gift-card::before,
+    .gift-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(20px);
+      opacity: 0.5;
+    }
+
+    .gift-card::before {
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 122, 162, 0.26);
+      top: -40px;
+      right: -40px;
+    }
+
+    .gift-card::after {
+      width: 160px;
+      height: 160px;
+      background: rgba(122, 252, 255, 0.22);
+      left: -30px;
+      bottom: -30px;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 26px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mini-tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--muted);
+    }
+
+    .emoji-orb {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.05);
+      animation: pulse 2.4s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .card-message {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 14px;
+    }
+
+    .card-message h2 {
+      font-size: clamp(1.5rem, 4vw, 2.35rem);
+      line-height: 1.1;
+    }
+
+    .card-message p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .signature {
+      margin-top: 14px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .section {
+      padding: 40px 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin-bottom: 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .glass-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 22px;
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .glass-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .glass-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.96rem;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .game-info {
+      display: grid;
+      gap: 14px;
+    }
+
+    .scoreboard {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .score-pill {
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      font-weight: 700;
+    }
+
+    .game-box {
+      position: relative;
+      height: 360px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 20%),
+        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.08), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.16);
+      overflow: hidden;
+      cursor: crosshair;
+      box-shadow: var(--shadow);
+    }
+
+    .game-target {
+      position: absolute;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.22);
+      user-select: none;
+      animation: targetPop 0.24s ease;
+    }
+
+    @keyframes targetPop {
+      from { transform: scale(0.75); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .hidden-note {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: rgba(140, 255, 178, 0.1);
+      border: 1px solid rgba(140, 255, 178, 0.3);
+      color: #dfffea;
+      display: none;
+      line-height: 1.7;
+    }
+
+    .footer {
+      padding: 36px 0 10px;
+      text-align: center;
+      color: rgba(249,251,255,0.62);
+      font-size: 0.94rem;
+    }
+
+    .music-wave {
+      display: inline-flex;
+      gap: 5px;
+      align-items: flex-end;
+      height: 22px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .music-wave span {
+      display: block;
+      width: 4px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      animation: wave 1s infinite ease-in-out;
+    }
+
+    .music-wave span:nth-child(1) { height: 8px; animation-delay: 0s; }
+    .music-wave span:nth-child(2) { height: 16px; animation-delay: 0.15s; }
+    .music-wave span:nth-child(3) { height: 12px; animation-delay: 0.3s; }
+    .music-wave span:nth-child(4) { height: 18px; animation-delay: 0.45s; }
+
+    @keyframes wave {
+      0%, 100% { transform: scaleY(0.65); opacity: 0.75; }
+      50% { transform: scaleY(1.1); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .game-grid,
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 10px;
+      }
+
+      .card-wrap {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 20px, 1100px);
+      }
+
+      .gift-card {
+        min-height: auto;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .game-box {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+  <div class="floating-hearts" id="hearts"></div>
+  <div class="confetti-layer" id="confetti"></div>
+
+  <main class="page">
+    <section class="hero">
+      <div>
+        <div class="badge">✨ Особенная страница-поздравление для особенного дня</div>
+        <h1>
+          С Днём Рождения,
+          <span class="gradient">Анастейша</span> 🎂
+        </h1>
+        <p class="hero-text">
+          Эта маленькая праздничная страница сделана с теплом, светом и хорошим настроением.
+          Здесь немного магии, немного анимации, чуть-чуть игры — и очень много добрых слов в твой день.
+          <span class="music-wave" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        </p>
+        <div class="hero-buttons">
+          <a href="#message" class="btn">Открыть поздравление</a>
+          <button class="btn secondary" id="confettiBtn">Запустить праздник 🎉</button>
+        </div>
+      </div>
+
+      <div class="card-wrap">
+        <article class="gift-card" id="tiltCard">
+          <div class="card-top">
+            <div class="mini-tag">Happy Birthday Mode: ON</div>
+            <div class="emoji-orb">🌤</div>
+          </div>
+
+          <div class="card-message">
+            <h2>Ты идёшь своим путём — и это очень красиво.</h2>
+            <p>
+              Не все дороги бывают лёгкими, но именно через труд, характер и упорство
+              появляется тот самый светлый момент, когда становится проще, увереннее и теплее.
+            </p>
+            <p>
+              Сегодня всё здесь для того, чтобы напомнить: ты сильный человек,
+              а твоя настойчивость и умение идти к своим целям действительно вызывают уважение.
+            </p>
+            <p class="signature">Для Анастейши — с теплом и улыбкой 💫</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="message">
+      <h2 class="section-title">Основное поздравление 💌</h2>
+      <p class="section-subtitle">
+        Я аккуратно оформил твой текст в красивую, атмосферную подачу, чтобы это выглядело как полноценная праздничная веб-открытка.
+      </p>
+
+      <div class="glass-card">
+        <p style="line-height:1.95; color: var(--text); font-size:1.03rem;">
+          Sooooo!🌤<br><br>
+          Анастейша, с Днем Рожденья!🥳🥳🥳🥳🌹<br><br>
+          Пусть твой путь не легок, твои труды окупятся и наступит момент когда станет гораздо проще и светлее!
+          Ты сильный человек, то как ты достигаешь своих целей может похвастаться не каждый.
+          То что нас не ломает делает нас сильнее, верно?🙈😅<br><br>
+          Продолжай в том же духе, знай что если что ты можешь обратится ко мне!🥸<br><br>
+          С твоим днем! С днем Рожденья!😎😎😎🥳🥳⚡️✨💫🔥🔥🔥🔥🔥
+        </p>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2 class="section-title">Почему эта открытка цепляет 🌌</h2>
+      <p class="section-subtitle">
+        В ней не просто текст. Тут есть настроение, лёгкая магия и интерактив, чтобы поздравление ощущалось живым.
+      </p>
+      <div class="features">
+        <article class="glass-card">
+          <h3>Атмосферный фон</h3>
+          <p>Мягкие градиенты, звёзды, плавающие сердечки и стеклянные блоки создают нежное и тёплое настроение.</p>
+        </article>
+        <article class="glass-card">
+          <h3>Анимации</h3>
+          <p>Плавное появление секций, объём карточки, кнопка для конфетти и живые декоративные элементы делают страницу динамичной.</p>
+        </article>
+        <article class="glass-card">
+          <h3>Маленькая игра</h3>
+          <p>Есть мини-игра: поймай праздничные символы, набери очки и открой скрытое дополнительное послание.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2 class="section-title">Мини-игра: Поймай праздник 🎯</h2>
+      <p class="section-subtitle">
+        Нажимай на появляющиеся символы внутри поля. Когда наберёшь 12 очков, появится секретное сообщение.
+      </p>
+
+      <div class="game-grid">
+        <div class="game-info glass-card">
+          <div class="scoreboard">
+            <div class="score-pill">Очки: <span id="score">0</span></div>
+            <div class="score-pill">Рекорд: <span id="best">0</span></div>
+            <div class="score-pill">Цель: 12</div>
+          </div>
+
+          <p style="line-height:1.8; color: var(--muted);">
+            Игра маленькая, но милая — как дополнительная деталь, чтобы страница ощущалась не просто текстом,
+            а чем-то созданным специально и с душой.
+          </p>
+
+          <button class="btn" id="startGameBtn" style="width:max-content;">Начать игру ✨</button>
+
+          <div class="hidden-note" id="hiddenNote">
+            Ты справилась 💖<br>
+            Пусть в этом году у тебя будет больше светлых моментов, уверенности, добрых людей рядом и побед,
+            которыми ты сама будешь по-настоящему гордиться.
+          </div>
+        </div>
+
+        <div class="game-box" id="gameBox" aria-label="Игровое поле"></div>
+      </div>
+    </section>
+
+    <footer class="footer reveal">
+      Сделано с теплом, кодом и хорошим настроением 💻✨
+    </footer>
+  </main>
+
+  <script>
+    const starsContainer = document.getElementById('stars');
+    const heartsContainer = document.getElementById('hearts');
+    const confettiLayer = document.getElementById('confetti');
+    const confettiBtn = document.getElementById('confettiBtn');
+    const tiltCard = document.getElementById('tiltCard');
+    const revealItems = document.querySelectorAll('.reveal');
+
+    function createStars(count = 90) {
+      for (let i = 0; i < count; i++) {
+        const star = document.createElement('span');
+        star.className = 'star';
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.animationDuration = `${2 + Math.random() * 4}s`;
+        star.style.animationDelay = `${Math.random() * 4}s`;
+        star.style.opacity = `${0.15 + Math.random() * 0.85}`;
+        starsContainer.appendChild(star);
+      }
+    }
+
+    function createHearts(count = 18) {
+      const symbols = ['💖', '✨', '💫', '🌸', '🌷'];
+      for (let i = 0; i < count; i++) {
+        const heart = document.createElement('span');
+        heart.className = 'heart';
+        heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.animationDuration = `${10 + Math.random() * 12}s`;
+        heart.style.animationDelay = `${Math.random() * 8}s`;
+        heart.style.fontSize = `${14 + Math.random() * 16}px`;
+        heartsContainer.appendChild(heart);
+      }
+    }
+
+    function launchConfetti(amount = 90) {
+      const pieces = ['✨', '🎉', '💖', '🌸', '💫'];
+      for (let i = 0; i < amount; i++) {
+        const piece = document.createElement('span');
+        piece.textContent = pieces[Math.floor(Math.random() * pieces.length)];
+        piece.style.position = 'absolute';
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.top = '-5%';
+        piece.style.fontSize = `${14 + Math.random() * 16}px`;
+        piece.style.opacity = '0.95';
+        piece.style.transform = `translateY(0) rotate(${Math.random() * 180}deg)`;
+        piece.style.transition = `transform ${2.8 + Math.random() * 1.5}s linear, opacity ${3 + Math.random() * 1.2}s ease`;
+        confettiLayer.appendChild(piece);
+
+        requestAnimationFrame(() => {
+          piece.style.transform = `translate(${(Math.random() - 0.5) * 180}px, ${window.innerHeight + 120}px) rotate(${Math.random() * 720}deg)`;
+          piece.style.opacity = '0';
+        });
+
+        setTimeout(() => piece.remove(), 4500);
+      }
+    }
+
+    confettiBtn.addEventListener('click', () => launchConfetti(110));
+
+    tiltCard.addEventListener('mousemove', (e) => {
+      const rect = tiltCard.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const rotateY = ((x / rect.width) - 0.5) * 16;
+      const rotateX = -((y / rect.height) - 0.5) * 16;
+      tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    tiltCard.addEventListener('mouseleave', () => {
+      tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealItems.forEach(item => observer.observe(item));
+
+    // Mini-game
+    const gameBox = document.getElementById('gameBox');
+    const scoreEl = document.getElementById('score');
+    const bestEl = document.getElementById('best');
+    const startGameBtn = document.getElementById('startGameBtn');
+    const hiddenNote = document.getElementById('hiddenNote');
+
+    let score = 0;
+    let best = Number(localStorage.getItem('birthdayBestScore') || 0);
+    let gameStarted = false;
+    let targetInterval = null;
+
+    bestEl.textContent = best;
+
+    function spawnTarget() {
+      if (!gameStarted) return;
+
+      const old = gameBox.querySelector('.game-target');
+      if (old) old.remove();
+
+      const target = document.createElement('button');
+      target.className = 'game-target';
+      target.type = 'button';
+      const icons = ['🎂', '💖', '✨', '🌟', '🎉'];
+      target.textContent = icons[Math.floor(Math.random() * icons.length)];
+
+      const maxX = gameBox.clientWidth - 64;
+      const maxY = gameBox.clientHeight - 64;
+      target.style.left = `${8 + Math.random() * Math.max(20, maxX - 8)}px`;
+      target.style.top = `${8 + Math.random() * Math.max(20, maxY - 8)}px`;
+
+      target.addEventListener('click', () => {
+        score++;
+        scoreEl.textContent = score;
+        launchConfetti(16);
+
+        if (score > best) {
+          best = score;
+          localStorage.setItem('birthdayBestScore', String(best));
+          bestEl.textContent = best;
+        }
+
+        if (score >= 12) {
+          hiddenNote.style.display = 'block';
+        }
+
+        spawnTarget();
+      });
+
+      gameBox.appendChild(target);
+
+      setTimeout(() => {
+        if (target.isConnected) target.remove();
+      }, 1200);
+    }
+
+    function startGame() {
+      score = 0;
+      scoreEl.textContent = score;
+      hiddenNote.style.display = 'none';
+      gameStarted = true;
+      clearInterval(targetInterval);
+      spawnTarget();
+      targetInterval = setInterval(spawnTarget, 1000);
+    }
+
+    startGameBtn.addEventListener('click', startGame);
+
+    createStars();
+    createHearts();
+
+    setTimeout(() => launchConfetti(70), 700);
+  </script>
+</body>
+</html>
