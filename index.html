@@ -2,184 +2,200 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>С Днём Рождения, Анастейша</title>
-
-  <!-- Подключаешь свой CSS -->
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>С Днём Рождения, Анастейша!</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Музыка -->
-  <audio id="bgMusic" autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- Фон -->
   <div class="stars" id="stars"></div>
   <div class="floating-hearts" id="hearts"></div>
   <div class="confetti-layer" id="confetti"></div>
 
   <main class="page">
-
-    <!-- HERO -->
     <section class="hero">
       <div>
-        <div class="badge">✨ Небольшая открытка специально для тебя</div>
+        <div class="badge">✨ Особенная страница-поздравление для особенного дня</div>
 
         <h1>
-          С Днём Рождения,<br>
+          С Днём<br />
+          Рождения,<br />
           <span class="gradient">Анастейша</span> 🎂
         </h1>
 
         <p class="hero-text">
-          Немного тепла, немного света и чуть-чуть магии в твой день 🌤
+          Эта маленькая праздничная страница сделана с теплом, светом и хорошим
+          настроением. Здесь немного магии, немного анимации и очень много
+          добрых слов в твой день.
         </p>
 
         <div class="hero-buttons">
           <a href="#message" class="btn">Открыть поздравление</a>
-          <button class="btn secondary" id="confettiBtn">🎉</button>
+          <button class="btn secondary" id="confettiBtn" type="button">
+            Запустить праздник 🎉
+          </button>
         </div>
       </div>
 
-      <!-- Карточка -->
       <div class="card-wrap">
         <article class="gift-card" id="tiltCard">
           <div class="card-top">
-            <div class="mini-tag">Birthday Mode</div>
+            <div class="mini-tag">Happy Birthday Mode: ON</div>
             <div class="emoji-orb">🌤</div>
           </div>
 
           <div class="card-message">
-            <h2>Ты реально сильный человек.</h2>
+            <h2>Ты идёшь своим путём — и это очень красиво.</h2>
+
             <p>
-              Не каждый способен идти вперёд так, как идёшь ты.
-              И это видно не по словам, а по действиям.
+              Не все дороги бывают лёгкими, но именно через труд, характер и
+              упорство появляется тот самый светлый момент, когда становится
+              проще, увереннее и теплее.
             </p>
+
             <p>
-              Всё, что сейчас сложно — со временем станет легче.
-              И ты к этому точно придёшь.
+              Сегодня всё здесь для того, чтобы напомнить: ты сильный человек,
+              а твоя настойчивость и умение идти к своим целям действительно
+              вызывают уважение.
             </p>
-            <p class="signature">💫</p>
+
+            <p class="signature">Для Анастейши — с теплом и улыбкой 💫</p>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- ОСНОВНОЕ ПОЗДРАВЛЕНИЕ -->
     <section class="section reveal" id="message">
-      <h2 class="section-title">💌</h2>
+      <h2 class="section-title">Поздравление 💌</h2>
 
       <div class="message-card">
         <p>
-          Sooooo!🌤<br><br>
-          Анастейша, с Днем Рожденья!🥳🥳🥳🥳🌹<br><br>
-          Пусть твой путь не легок, твои труды окупятся и наступит момент когда станет гораздо проще и светлее!<br>
-          Ты сильный человек, то как ты достигаешь своих целей может похвастаться не каждый.<br>
-          То что нас не ломает делает нас сильнее, верно?🙈😅<br><br>
-          Продолжай в том же духе, знай что если что ты можешь обратится ко мне!🥸<br><br>
-          С твоим днем! С днем Рожденья!😎😎😎🥳🥳⚡️✨💫🔥🔥🔥🔥🔥
+          Sooooo!🌤<br /><br />
+          Анастейша, с Днем Рожденья!🥳🥳🥳🥳🌹<br /><br />
+          Пусть твой путь не легок, твои труды окупятся и наступит момент когда
+          станет гораздо проще и светлее! Ты сильный человек, то как ты
+          достигаешь своих целей может похвастаться не каждый. То что нас не
+          ломает делает нас сильнее, верно?🙈😅<br /><br />
+          Продолжай в том же духе, знай что если что ты можешь обратится ко
+          мне!🥸<br /><br />
+          С твои днем! С днем Рожденья!😎😎😎🥳🥳⚡️✨💫🔥🔥🔥🔥🔥
         </p>
       </div>
     </section>
 
     <footer class="footer reveal">
-      💻✨
+      Сделано с теплом 💻✨
     </footer>
-
   </main>
 
   <script>
-    const starsContainer = document.getElementById('stars');
-    const heartsContainer = document.getElementById('hearts');
-    const confettiLayer = document.getElementById('confetti');
-    const confettiBtn = document.getElementById('confettiBtn');
-    const tiltCard = document.getElementById('tiltCard');
-    const revealItems = document.querySelectorAll('.reveal');
+    const starsContainer = document.getElementById("stars");
+    const heartsContainer = document.getElementById("hearts");
+    const confettiLayer = document.getElementById("confetti");
+    const confettiBtn = document.getElementById("confettiBtn");
+    const tiltCard = document.getElementById("tiltCard");
+    const revealItems = document.querySelectorAll(".reveal");
     const music = document.getElementById("bgMusic");
 
-    // Звезды
-    function createStars(count = 80) {
+    function createStars(count = 90) {
       for (let i = 0; i < count; i++) {
-        const star = document.createElement('span');
-        star.className = 'star';
+        const star = document.createElement("span");
+        star.className = "star";
         star.style.left = `${Math.random() * 100}%`;
         star.style.top = `${Math.random() * 100}%`;
         star.style.animationDuration = `${2 + Math.random() * 4}s`;
+        star.style.animationDelay = `${Math.random() * 4}s`;
+        star.style.opacity = `${0.2 + Math.random() * 0.8}`;
         starsContainer.appendChild(star);
       }
     }
 
-    // Сердечки
-    function createHearts(count = 14) {
-      const symbols = ['💖','✨','💫'];
+    function createHearts(count = 16) {
+      const symbols = ["💖", "✨", "💫"];
       for (let i = 0; i < count; i++) {
-        const el = document.createElement('span');
-        el.className = 'heart';
-        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-        el.style.left = `${Math.random() * 100}%`;
-        el.style.animationDuration = `${10 + Math.random() * 10}s`;
-        heartsContainer.appendChild(el);
+        const heart = document.createElement("span");
+        heart.className = "heart";
+        heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.animationDuration = `${10 + Math.random() * 12}s`;
+        heart.style.animationDelay = `${Math.random() * 8}s`;
+        heart.style.fontSize = `${14 + Math.random() * 14}px`;
+        heartsContainer.appendChild(heart);
       }
     }
 
-    // Конфетти
-    function launchConfetti(amount = 80) {
-      const items = ['✨','🎉','💖'];
+    function launchConfetti(amount = 85) {
+      const pieces = ["✨", "🎉", "💖", "💫"];
       for (let i = 0; i < amount; i++) {
-        const el = document.createElement('span');
-        el.textContent = items[Math.floor(Math.random() * items.length)];
-        el.style.position = 'absolute';
-        el.style.left = `${Math.random() * 100}%`;
-        el.style.top = '-5%';
-        el.style.transition = '3s linear';
-        confettiLayer.appendChild(el);
+        const piece = document.createElement("span");
+        piece.textContent = pieces[Math.floor(Math.random() * pieces.length)];
+        piece.style.position = "absolute";
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.top = "-5%";
+        piece.style.fontSize = `${14 + Math.random() * 16}px`;
+        piece.style.opacity = "1";
+        piece.style.transition =
+          `transform ${2.8 + Math.random() * 1.2}s linear, opacity 3s ease`;
+        confettiLayer.appendChild(piece);
 
         requestAnimationFrame(() => {
-          el.style.transform = `translateY(${window.innerHeight}px)`;
-          el.style.opacity = '0';
+          piece.style.transform =
+            `translate(${(Math.random() - 0.5) * 180}px, ${window.innerHeight + 120}px) rotate(${Math.random() * 720}deg)`;
+          piece.style.opacity = "0";
         });
 
-        setTimeout(() => el.remove(), 3000);
+        setTimeout(() => piece.remove(), 3500);
       }
     }
 
-    confettiBtn.onclick = () => launchConfetti();
+    confettiBtn.addEventListener("click", () => launchConfetti(110));
 
-    // Tilt эффект
-    tiltCard.addEventListener('mousemove', (e) => {
+    tiltCard.addEventListener("mousemove", (e) => {
       const rect = tiltCard.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      tiltCard.style.transform = `
-        rotateX(${-(y/rect.height - 0.5)*12}deg)
-        rotateY(${(x/rect.width - 0.5)*12}deg)
-      `;
+
+      const rotateY = ((x / rect.width) - 0.5) * 14;
+      const rotateX = -((y / rect.height) - 0.5) * 14;
+
+      tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
 
-    tiltCard.addEventListener('mouseleave', () => {
-      tiltCard.style.transform = 'rotateX(0) rotateY(0)';
+    tiltCard.addEventListener("mouseleave", () => {
+      tiltCard.style.transform = "rotateX(0deg) rotateY(0deg)";
     });
 
-    // Reveal
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
       });
-    });
-    revealItems.forEach(el => observer.observe(el));
+    }, { threshold: 0.15 });
 
-    // Музыка (авто + fallback)
-    document.addEventListener("click", () => {
+    revealItems.forEach((item) => observer.observe(item));
+
+    function startMusic() {
       if (music.paused) {
-        music.play().catch(()=>{});
+        music.volume = 0.65;
+        music.play().catch(() => {});
       }
-    }, { once: true });
+    }
+
+    window.addEventListener("load", () => {
+      startMusic();
+      setTimeout(() => launchConfetti(55), 500);
+    });
+
+    document.addEventListener("click", startMusic, { once: true });
+    document.addEventListener("scroll", startMusic, { once: true });
+    document.addEventListener("keydown", startMusic, { once: true });
 
     createStars();
     createHearts();
-    setTimeout(() => launchConfetti(60), 500);
   </script>
-
 </body>
 </html>
